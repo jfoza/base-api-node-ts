@@ -1,13 +1,19 @@
 import { Router } from "express";
 import { celebrate, Joi, Segments, errors } from "celebrate";
-import MessagesController from "../controllers/MessagesController";
+import ListMessagesController from "../controllers/ListMessagesController";
+import CreateMessagesController from "../controllers/CreateMessagesController";
+import UpdateMessagesController from "../controllers/UpdateMessagesController";
+import DeleteMessagesController from "../controllers/DeleteMessagesController";
 import isAuthenticated from "@core/presentation/http/middlewares/isAuthnticated";
 
 let messagesRoutes = Router();
-let messagesController = new MessagesController();
+let listMessagesController = new ListMessagesController();
+let createMessagesController = new CreateMessagesController();
+let updateMessagesController = new UpdateMessagesController();
+let deleteMessagesController = new DeleteMessagesController();
 
 // Para listar os usuários cadastrados, é preciso estar autenticado
-messagesRoutes.get("/", isAuthenticated, messagesController.index);
+messagesRoutes.get("/", isAuthenticated, listMessagesController.run);
 
 messagesRoutes.post(
   "/",
@@ -20,7 +26,7 @@ messagesRoutes.post(
     },
   }),
   // Chama o controller
-  messagesController.create
+  createMessagesController.run
 );
 
 messagesRoutes.put(
@@ -38,7 +44,7 @@ messagesRoutes.put(
     },
   }),
   // Chama o controller
-  messagesController.update
+  updateMessagesController.run
 );
 
 messagesRoutes.delete(
@@ -51,7 +57,7 @@ messagesRoutes.delete(
     },
   }),
   // Chama o controller
-  messagesController.delete
+  deleteMessagesController.run
 );
 
 export default messagesRoutes;

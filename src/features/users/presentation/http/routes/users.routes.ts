@@ -1,13 +1,15 @@
 import { Router } from "express";
 import { celebrate, Joi, Segments, errors } from "celebrate";
-import UsersController from "../controllers/UsersController";
+import CreateUsersController from "../controllers/CreateUsersController";
+import ListUsersController from "../controllers/ListUsersController";
 import isAuthenticated from "@core/presentation/http/middlewares/isAuthnticated";
 
 let usersRoutes = Router();
-let usersController = new UsersController();
+let listUsersController = new ListUsersController();
+let createUsersController = new CreateUsersController();
 
 // Para listar os usuários cadastrados, é preciso estar autenticado
-usersRoutes.get("/", isAuthenticated, usersController.index);
+usersRoutes.get("/", isAuthenticated, listUsersController.run);
 
 usersRoutes.post(
   "/",
@@ -29,7 +31,7 @@ usersRoutes.post(
     },
   }),
   // Chama o controller
-  usersController.create
+  createUsersController.run
 );
 
 export default usersRoutes;
