@@ -1,8 +1,8 @@
 import AppError from "@core/domain/errors/AppError";
 import { injectable, inject } from "tsyringe";
-import { IMessage } from "../domain/models/IMessage";
-import { IUpdateMessage } from "../domain/models/IUpdateMessage";
-import { IMessagesRepository } from "../domain/repositories/IMessagesRepository";
+import { IMessage } from "../../domain/models/IMessage";
+import { IUpdateMessage } from "../../domain/models/IUpdateMessage";
+import { IMessagesRepository } from "../../domain/repositories/IMessagesRepository";
 
 @injectable()
 class UpdateMessageService {

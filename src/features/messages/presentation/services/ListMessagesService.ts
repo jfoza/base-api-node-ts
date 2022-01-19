@@ -1,6 +1,6 @@
 import { inject, injectable } from "tsyringe";
-import { IMessage } from "../domain/models/IMessage";
-import { IMessagesRepository } from "../domain/repositories/IMessagesRepository";
+import { IMessage } from "../../domain/models/IMessage";
+import { IMessagesRepository } from "../../domain/repositories/IMessagesRepository";
 
 @injectable()
 class ListMessagesService {

@@ -1,7 +1,7 @@
 import { injectable, inject } from "tsyringe";
-import { ICreateMessages } from "../domain/models/ICreateMessages";
-import { IMessage } from "../domain/models/IMessage";
-import { IMessagesRepository } from "../domain/repositories/IMessagesRepository";
+import { ICreateMessages } from "../../domain/models/ICreateMessages";
+import { IMessage } from "../../domain/models/IMessage";
+import { IMessagesRepository } from "../../domain/repositories/IMessagesRepository";
 
 @injectable()
 class CreateMessagesService {

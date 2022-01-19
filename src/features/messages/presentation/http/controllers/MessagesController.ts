@@ -1,7 +1,7 @@
-import CreateMessagesService from "@features/messages/services/CreateMessagesService";
-import DeleteMessageService from "@features/messages/services/DeleteMessageService";
-import ListMessagesService from "@features/messages/services/ListMessagesService";
-import UpdateMessageService from "@features/messages/services/UpdateMessageService";
+import CreateMessagesService from "@features/messages/presentation/services/CreateMessagesService";
+import DeleteMessageService from "@features/messages/presentation/services/DeleteMessageService";
+import ListMessagesService from "@features/messages/presentation/services/ListMessagesService";
+import UpdateMessageService from "@features/messages/presentation/services/UpdateMessageService";
 import { Request, Response } from "express";
 import { container } from "tsyringe";
 

@@ -1,7 +1,7 @@
 import AppError from "@core/domain/errors/AppError";
 import { injectable, inject } from "tsyringe";
-import { IdeleteMessage } from "../domain/models/IDeleteMessage";
-import { IMessagesRepository } from "../domain/repositories/IMessagesRepository";
+import { IdeleteMessage } from "../../domain/models/IDeleteMessage";
+import { IMessagesRepository } from "../../domain/repositories/IMessagesRepository";
 
 @injectable()
 class DeleteMessageService {

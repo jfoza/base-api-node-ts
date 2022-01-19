@@ -1,6 +1,6 @@
 import { Request, Response } from "express";
-import CreateUserService from "@features/users/services/CreateUserService";
-import ListUsersService from "@features/users/services/ListUsersService";
+import CreateUserService from "@features/users/presentation/services/CreateUserService";
+import ListUsersService from "@features/users/presentation/services/ListUsersService";
 import { container } from "tsyringe";
 
 export default class UsersController {

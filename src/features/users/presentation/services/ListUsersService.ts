@@ -1,6 +1,6 @@
 import { injectable, inject } from "tsyringe";
-import { IUserRepository } from "../domain/repositories/IUserRepository";
-import User from "../infra/typeorm/entities/User";
+import { IUserRepository } from "../../domain/repositories/IUserRepository";
+import User from "../../infra/typeorm/entities/User";
 
 @injectable()
 class ListUsersService {

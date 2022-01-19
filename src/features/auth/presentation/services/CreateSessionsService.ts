@@ -4,8 +4,8 @@ import { compare } from "bcryptjs";
 import { sign } from "jsonwebtoken";
 import { injectable, inject } from "tsyringe";
 import { IUserRepository } from "@features/users/domain/repositories/IUserRepository";
-import { ICreateSessions } from "../domain/models/ICreateSessions";
-import { IUserAuthenticated } from "../domain/models/IUserAuthenticated";
+import { ICreateSessions } from "../../domain/models/ICreateSessions";
+import { IUserAuthenticated } from "../../domain/models/IUserAuthenticated";
 
 @injectable()
 class CreateSessionsService {
