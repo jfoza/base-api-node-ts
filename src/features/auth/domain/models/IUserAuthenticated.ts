@@ -1,6 +1,6 @@
-import { IUser } from '@features/users/domain/models/IUser';
+import { IUserSession } from '@features/users/domain/models/IUserSession';
 
 export interface IUserAuthenticated {
-  user: IUser;
+  user: IUserSession;
   token: string;
 }
