@@ -1,4 +1,4 @@
-import { IUser } from "@features/users/domain/models/IUser";
+import { IUser } from '@features/users/domain/models/IUser';
 
 export interface IUserAuthenticated {
   user: IUser;

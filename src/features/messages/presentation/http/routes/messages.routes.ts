@@ -1,43 +1,43 @@
-import { Router } from "express";
-import { celebrate, Joi, Segments, errors } from "celebrate";
-import ListMessagesController from "../controllers/ListMessagesController";
-import ShowMessageController from "../controllers/ShowMessageController";
-import CreateMessagesController from "../controllers/CreateMessagesController";
-import UpdateMessagesController from "../controllers/UpdateMessagesController";
-import DeleteMessagesController from "../controllers/DeleteMessagesController";
+import { Router } from 'express';
+import { celebrate, Joi, Segments } from 'celebrate';
+import ListMessagesController from '../controllers/ListMessagesController';
+import ShowMessageController from '../controllers/ShowMessageController';
+import CreateMessagesController from '../controllers/CreateMessagesController';
+import UpdateMessagesController from '../controllers/UpdateMessagesController';
+import DeleteMessagesController from '../controllers/DeleteMessagesController';
 
-let messagesRoutes = Router();
-let listMessagesController = new ListMessagesController();
-let showMessageController = new ShowMessageController();
-let createMessagesController = new CreateMessagesController();
-let updateMessagesController = new UpdateMessagesController();
-let deleteMessagesController = new DeleteMessagesController();
+const messagesRoutes = Router();
+const listMessagesController = new ListMessagesController();
+const showMessageController = new ShowMessageController();
+const createMessagesController = new CreateMessagesController();
+const updateMessagesController = new UpdateMessagesController();
+const deleteMessagesController = new DeleteMessagesController();
 
-messagesRoutes.get("/", listMessagesController.run);
+messagesRoutes.get('/', listMessagesController.run);
 
 messagesRoutes.get(
-  "/:id",
+  '/:id',
   celebrate({
     [Segments.PARAMS]: {
       id: Joi.string().uuid().required(),
     },
   }),
-  showMessageController.run
+  showMessageController.run,
 );
 
 messagesRoutes.post(
-  "/",
+  '/',
   celebrate({
     [Segments.BODY]: {
       description: Joi.string().required(),
       details: Joi.string().required(),
     },
   }),
-  createMessagesController.run
+  createMessagesController.run,
 );
 
 messagesRoutes.put(
-  "/:id",
+  '/:id',
   celebrate({
     [Segments.BODY]: {
       description: Joi.string().required(),
@@ -48,17 +48,17 @@ messagesRoutes.put(
       id: Joi.string().uuid().required(),
     },
   }),
-  updateMessagesController.run
+  updateMessagesController.run,
 );
 
 messagesRoutes.delete(
-  "/:id",
+  '/:id',
   celebrate({
     [Segments.PARAMS]: {
       id: Joi.string().uuid().required(),
     },
   }),
-  deleteMessagesController.run
+  deleteMessagesController.run,
 );
 
 export default messagesRoutes;

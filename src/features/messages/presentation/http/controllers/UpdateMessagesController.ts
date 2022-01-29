@@ -1,7 +1,7 @@
-import { IController } from "@core/presentation/contracts/IController";
-import UpdateMessageService from "@features/messages/presentation/services/UpdateMessageService";
-import { Request, Response } from "express";
-import { container } from "tsyringe";
+import { IController } from '@core/presentation/contracts/IController';
+import UpdateMessageService from '@features/messages/presentation/services/UpdateMessageService';
+import { Request, Response } from 'express';
+import { container } from 'tsyringe';
 
 export default class UpdateMessagesController implements IController {
   public async run(request: Request, response: Response): Promise<Response> {

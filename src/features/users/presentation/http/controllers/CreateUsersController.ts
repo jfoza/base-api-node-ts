@@ -1,7 +1,7 @@
-import { Request, Response } from "express";
-import CreateUserService from "@features/users/presentation/services/CreateUserService";
-import { container } from "tsyringe";
-import { IController } from "@core/presentation/contracts/IController";
+import { Request, Response } from 'express';
+import CreateUserService from '@features/users/presentation/services/CreateUserService';
+import { container } from 'tsyringe';
+import { IController } from '@core/presentation/contracts/IController';
 
 export default class CreateUsersController implements IController {
   public async run(request: Request, response: Response): Promise<Response> {

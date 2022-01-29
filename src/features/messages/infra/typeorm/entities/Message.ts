@@ -1,22 +1,32 @@
-import { IMessage } from "@features/messages/domain/models/IMessage";
+import { IMessage } from '@features/messages/domain/models/IMessage';
+import User from '@features/users/infra/typeorm/entities/User';
 import {
   Column,
   CreateDateColumn,
   UpdateDateColumn,
   Entity,
   PrimaryGeneratedColumn,
-} from "typeorm";
+  ManyToOne,
+  JoinColumn,
+} from 'typeorm';
 
-@Entity("messages")
+@Entity('messages')
 class Message implements IMessage {
-  @PrimaryGeneratedColumn("uuid")
+  @PrimaryGeneratedColumn('uuid')
   id: string;
+
+  @Column()
+  user_id: string;
 
   @Column()
   description: string;
 
   @Column()
   details: string;
+
+  @ManyToOne(() => User, user => user.messages)
+  @JoinColumn({ name: 'user_id' })
+  user: User;
 
   @CreateDateColumn()
   created_at: Date;

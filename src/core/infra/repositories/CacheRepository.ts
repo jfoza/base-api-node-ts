@@ -1,5 +1,5 @@
-import Redis, { Redis as RedisClient } from "ioredis";
-import cacheConfig from "@config/cache";
+import Redis, { Redis as RedisClient } from 'ioredis';
+import cacheConfig from '@config/cache';
 
 export default class RedisCache {
   private client: RedisClient;
@@ -8,6 +8,7 @@ export default class RedisCache {
     this.client = new Redis(cacheConfig.config.redis);
   }
 
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   public async save(key: string, value: any): Promise<void> {
     await this.client.set(key, JSON.stringify(value));
   }

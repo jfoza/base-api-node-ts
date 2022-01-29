@@ -1,5 +1,5 @@
-import { ICreateMessages } from "../models/ICreateMessages";
-import { IMessage } from "../models/IMessage";
+import { ICreateMessages } from '../models/ICreateMessages';
+import { IMessage } from '../models/IMessage';
 
 export interface IMessagesRepository {
   findAll(): Promise<IMessage[]>;

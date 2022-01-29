@@ -1,7 +1,7 @@
-import { IController } from "@core/presentation/contracts/IController";
-import { Request, Response } from "express";
-import { container } from "tsyringe";
-import CreateSessionsService from "../../services/CreateSessionsService";
+import { IController } from '@core/presentation/contracts/IController';
+import { Request, Response } from 'express';
+import { container } from 'tsyringe';
+import CreateSessionsService from '../../services/CreateSessionsService';
 
 export default class SessionsController implements IController {
   public async run(request: Request, response: Response): Promise<Response> {

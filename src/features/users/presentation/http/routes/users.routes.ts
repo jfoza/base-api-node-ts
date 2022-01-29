@@ -1,18 +1,18 @@
-import { Router } from "express";
-import { celebrate, Joi, Segments, errors } from "celebrate";
-import CreateUsersController from "../controllers/CreateUsersController";
-import ListUsersController from "../controllers/ListUsersController";
-import isAuthenticated from "@core/presentation/http/middlewares/isAuthnticated";
+import { Router } from 'express';
+import { celebrate, Joi, Segments } from 'celebrate';
+import CreateUsersController from '../controllers/CreateUsersController';
+import ListUsersController from '../controllers/ListUsersController';
+import isAuthenticated from '@core/presentation/http/middlewares/isAuthnticated';
 
-let usersRoutes = Router();
-let listUsersController = new ListUsersController();
-let createUsersController = new CreateUsersController();
+const usersRoutes = Router();
+const listUsersController = new ListUsersController();
+const createUsersController = new CreateUsersController();
 
 // Para listar os usuários cadastrados, é preciso estar autenticado
-usersRoutes.get("/", isAuthenticated, listUsersController.run);
+usersRoutes.get('/', isAuthenticated, listUsersController.run);
 
 usersRoutes.post(
-  "/",
+  '/',
   //MIDDLEWARE
   // Validação dos campos utilizando o celebrate
   celebrate({
@@ -23,15 +23,15 @@ usersRoutes.post(
 
       // Verifica se os campos Senha e Confirmação de Senha são iguais
       password_confirmation: Joi.string()
-        .valid(Joi.ref("password"))
-        .when("password", {
+        .valid(Joi.ref('password'))
+        .when('password', {
           is: Joi.exist(),
           then: Joi.required(),
         }),
     },
   }),
   // Chama o controller
-  createUsersController.run
+  createUsersController.run,
 );
 
 export default usersRoutes;
