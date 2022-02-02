@@ -1,5 +1,5 @@
 import { IController } from '@core/presentation/contracts/IController';
-import ListMessagesService from '@features/messages/presentation/services/ListMessagesService';
+import ListMessagesService from '@features/messages/domain/services/ListMessagesService';
 import { Request, Response } from 'express';
 import { container } from 'tsyringe';
 

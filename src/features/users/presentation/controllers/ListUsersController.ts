@@ -1,5 +1,5 @@
 import { Request, Response } from 'express';
-import ListUsersService from '@features/users/presentation/services/ListUsersService';
+import ListUsersService from '@features/users/domain/services/ListUsersService';
 import { container } from 'tsyringe';
 import { IController } from '@core/presentation/contracts/IController';
 

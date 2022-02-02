@@ -1,7 +1,7 @@
 import RedisCache from '@core/infra/repositories/CacheRepository';
 import { inject, injectable } from 'tsyringe';
-import { IMessage } from '../../domain/models/IMessage';
-import { IMessagesRepository } from '../../domain/repositories/IMessagesRepository';
+import { IMessage } from '../models/IMessage';
+import { IMessagesRepository } from '../repositories/IMessagesRepository';
 
 @injectable()
 class ListMessagesService {

@@ -1,8 +1,8 @@
 import { hash } from 'bcryptjs';
 import AppError from '@core/domain/errors/AppError';
-import { IUserRepository } from '../../domain/repositories/IUserRepository';
-import { ICreateUser } from '../../domain/models/ICreateUser';
-import { IUser } from '../../domain/models/IUser';
+import { IUserRepository } from '../repositories/IUserRepository';
+import { ICreateUser } from '../models/ICreateUser';
+import { IUser } from '../models/IUser';
 import { inject, injectable } from 'tsyringe';
 
 @injectable()

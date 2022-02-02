@@ -29,6 +29,7 @@ messagesRoutes.post(
   '/',
   celebrate({
     [Segments.BODY]: {
+      user_id: Joi.string().uuid().required(),
       description: Joi.string().required(),
       details: Joi.string().required(),
     },

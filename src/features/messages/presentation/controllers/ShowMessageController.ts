@@ -1,7 +1,7 @@
 import { Request, Response } from 'express';
 import { container } from 'tsyringe';
-import { IController } from '../../../../../core/presentation/contracts/IController';
-import ShowMessageService from '../../services/ShowMessageService';
+import { IController } from '../../../../core/presentation/contracts/IController';
+import ShowMessageService from '../../domain/services/ShowMessageService';
 
 export default class ShowMessageController implements IController {
   public async run(request: Request, response: Response): Promise<Response> {

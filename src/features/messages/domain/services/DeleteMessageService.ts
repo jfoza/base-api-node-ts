@@ -1,23 +1,18 @@
 import AppError from '@core/domain/errors/AppError';
 import RedisCache from '@core/infra/repositories/CacheRepository';
 import { injectable, inject } from 'tsyringe';
-import { IMessage } from '../../domain/models/IMessage';
-import { IUpdateMessage } from '../../domain/models/IUpdateMessage';
-import { IMessagesRepository } from '../../domain/repositories/IMessagesRepository';
+import { IdeleteMessage } from '../models/IDeleteMessage';
+import { IMessagesRepository } from '../repositories/IMessagesRepository';
 
 @injectable()
-class UpdateMessageService {
+class DeleteMessageService {
   constructor(
     @inject('MessagesRepository')
     private messagesRepository: IMessagesRepository,
     private redisCache: RedisCache,
   ) {}
 
-  public async execute({
-    id,
-    description,
-    details,
-  }: IUpdateMessage): Promise<IMessage> {
+  public async execute({ id }: IdeleteMessage): Promise<void> {
     const message = await this.messagesRepository.findById(id);
 
     if (!message) {
@@ -27,13 +22,8 @@ class UpdateMessageService {
     await this.redisCache.invalidate('api-messages-MESSAGES-LIST');
     await this.redisCache.invalidate('api-messages-MESSAGE-ID');
 
-    message.description = description;
-    message.details = details;
-
-    await this.messagesRepository.save(message);
-
-    return message;
+    await this.messagesRepository.remove(message);
   }
 }
 
-export default UpdateMessageService;
+export default DeleteMessageService;

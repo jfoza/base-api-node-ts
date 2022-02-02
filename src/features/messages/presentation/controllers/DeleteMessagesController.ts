@@ -1,5 +1,5 @@
 import { IController } from '@core/presentation/contracts/IController';
-import DeleteMessageService from '@features/messages/presentation/services/DeleteMessageService';
+import DeleteMessageService from '@features/messages/domain/services/DeleteMessageService';
 import { Request, Response } from 'express';
 import { container } from 'tsyringe';
 
