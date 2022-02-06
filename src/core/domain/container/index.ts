@@ -4,6 +4,8 @@ import UsersRepository from '@features/users/infra/typeorm/repositories/UsersRep
 import { IMessagesRepository } from '@features/messages/domain/repositories/IMessagesRepository';
 import MessagesRepository from '@features/messages/infra/typeorm/repositories/MessagesRepository';
 
+import '@features/users/domain/providers';
+
 container.registerSingleton<IUserRepository>(
   'UsersRepository',
   UsersRepository,
