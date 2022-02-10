@@ -1,7 +1,7 @@
-import { ICreateMessages } from '@features/messages/domain/models/ICreateMessages';
-import { IMessagesRepository } from '@features/messages/domain/repositories/IMessagesRepository';
-import Message from '@features/messages/infra/typeorm/entities/Message';
-import { IMessage } from '@features/messages/domain/models/IMessage';
+import { ICreateMessages } from '../../../../../src/features/messages/domain/models/ICreateMessages';
+import { IMessagesRepository } from '../../../../../src/features/messages/domain/repositories/IMessagesRepository';
+import Message from '../../../../../src/features/messages/infra/typeorm/entities/Message';
+import { IMessage } from '../../../../../src/features/messages/domain/models/IMessage';
 import { v4 as uuidv4 } from 'uuid';
 
 class FakeMessagesRepository implements IMessagesRepository {

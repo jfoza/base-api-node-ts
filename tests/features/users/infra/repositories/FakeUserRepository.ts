@@ -1,7 +1,7 @@
-import { ICreateUser } from '@features/users/domain/models/ICreateUser';
-import { IUserRepository } from '@features/users/domain/repositories/IUserRepository';
-import User from '@features/users/infra/typeorm/entities/User';
-import { IUser } from '@features/users/domain/models/IUser';
+import { ICreateUser } from '../../../../../src/features/users/domain/models/ICreateUser';
+import { IUserRepository } from '../../../../../src/features/users/domain/repositories/IUserRepository';
+import User from '../../../../../src/features/users/infra/typeorm/entities/User';
+import { IUser } from '../../../../../src/features/users/domain/models/IUser';
 import { v4 as uuidv4 } from 'uuid';
 
 class FakeUsersRepository implements IUserRepository {

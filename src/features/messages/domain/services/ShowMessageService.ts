@@ -2,7 +2,7 @@ import RedisCache from '@core/infra/repositories/CacheRepository';
 import { IMessage } from '@features/messages/domain/models/IMessage';
 import { IShowMessage } from '@features/messages/domain/models/IShowMessage';
 import { IMessagesRepository } from '@features/messages/domain/repositories/IMessagesRepository';
-import AppError from 'src/core/domain/errors/AppError';
+import AppError from '@core/domain/errors/AppError';
 import { inject, injectable } from 'tsyringe';
 
 @injectable()

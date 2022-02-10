@@ -14,6 +14,11 @@ export class CreateMessages1641597428549 implements MigrationInterface {
             default: 'uuid_generate_v4()',
           },
           {
+            name: 'user_id',
+            type: 'uuid',
+            isNullable: true,
+          },
+          {
             name: 'description',
             type: 'varchar',
           },
@@ -32,11 +37,21 @@ export class CreateMessages1641597428549 implements MigrationInterface {
             default: 'now()',
           },
         ],
+
+        foreignKeys: [
+          {
+            name: 'MessageUserId',
+            columnNames: ['user_id'],
+            referencedTableName: 'users',
+            referencedColumnNames: ['id'],
+          },
+        ],
       }),
     );
   }
 
   public async down(queryRunner: QueryRunner): Promise<void> {
+    await queryRunner.dropForeignKey('messages', 'MessageUserId');
     await queryRunner.dropTable('messages');
   }
 }
