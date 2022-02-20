@@ -28,6 +28,6 @@ describe('ListMessagesService', () => {
 
     const messages = await listMessagesService.execute();
 
-    expect(messages.length).toEqual(1);
+    expect(Array.isArray(messages)).toEqual(true);
   });
 });

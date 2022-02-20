@@ -50,7 +50,7 @@ describe('CreateSession', () => {
     ).rejects.toBeInstanceOf(AppError);
   });
 
-  it('Não deve autenticar quando um usuário fornece uma senha errada', async () => {
+  it('Não deve autenticar quando o usuário fornece uma senha errada', async () => {
     await fakeUsersRepository.create({
       name: 'Giuseppe Foza',
       email: 'gfozza@hotmail.com',

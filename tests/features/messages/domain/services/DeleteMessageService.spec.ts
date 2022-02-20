@@ -27,11 +27,11 @@ describe('DeleteMessageService', () => {
       details: 'Teste',
     });
 
-    await deleteMessageService.execute({
+    const result = await deleteMessageService.execute({
       id: message.id,
     });
 
-    expect([]);
+    expect(result).toEqual([]);
   });
 
   it('Não pode excluir uma mensagem que não existe', () => {

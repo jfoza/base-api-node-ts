@@ -4,7 +4,7 @@ import { container } from 'tsyringe';
 import CreateSessionsService from '../../domain/services/CreateSessionsService';
 
 export default class SessionsController implements IController {
-  public async run(request: Request, response: Response): Promise<Response> {
+  public async handle(request: Request, response: Response): Promise<Response> {
     const { email, password } = request.body;
 
     const createSession = container.resolve(CreateSessionsService);

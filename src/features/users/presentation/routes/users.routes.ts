@@ -9,7 +9,7 @@ const listUsersController = new ListUsersController();
 const createUsersController = new CreateUsersController();
 
 // Para listar os usuários cadastrados, é preciso estar autenticado
-usersRoutes.get('/', isAuthenticated, listUsersController.run);
+usersRoutes.get('/', isAuthenticated, listUsersController.handle);
 
 usersRoutes.post(
   '/',
@@ -31,7 +31,7 @@ usersRoutes.post(
     },
   }),
   // Chama o controller
-  createUsersController.run,
+  createUsersController.handle,
 );
 
 export default usersRoutes;

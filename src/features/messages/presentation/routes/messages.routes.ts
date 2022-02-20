@@ -13,7 +13,7 @@ const createMessagesController = new CreateMessagesController();
 const updateMessagesController = new UpdateMessagesController();
 const deleteMessagesController = new DeleteMessagesController();
 
-messagesRoutes.get('/', listMessagesController.run);
+messagesRoutes.get('/', listMessagesController.handle);
 
 messagesRoutes.get(
   '/:id',
@@ -22,7 +22,7 @@ messagesRoutes.get(
       id: Joi.string().uuid().required(),
     },
   }),
-  showMessageController.run,
+  showMessageController.handle,
 );
 
 messagesRoutes.post(
@@ -34,7 +34,7 @@ messagesRoutes.post(
       details: Joi.string().required(),
     },
   }),
-  createMessagesController.run,
+  createMessagesController.handle,
 );
 
 messagesRoutes.put(
@@ -49,7 +49,7 @@ messagesRoutes.put(
       id: Joi.string().uuid().required(),
     },
   }),
-  updateMessagesController.run,
+  updateMessagesController.handle,
 );
 
 messagesRoutes.delete(
@@ -59,7 +59,7 @@ messagesRoutes.delete(
       id: Joi.string().uuid().required(),
     },
   }),
-  deleteMessagesController.run,
+  deleteMessagesController.handle,
 );
 
 export default messagesRoutes;

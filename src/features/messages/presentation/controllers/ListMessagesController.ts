@@ -4,7 +4,7 @@ import { Request, Response } from 'express';
 import { container } from 'tsyringe';
 
 export default class ListMessagesController implements IController {
-  public async run(request: Request, response: Response): Promise<Response> {
+  public async handle(request: Request, response: Response): Promise<Response> {
     const listMessages = container.resolve(ListMessagesService);
 
     const messages = await listMessages.execute();

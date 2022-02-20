@@ -1,8 +1,8 @@
 import { container } from 'tsyringe';
 import { IUserRepository } from '@features/users/domain/repositories/IUserRepository';
-import UsersRepository from '@features/users/infra/typeorm/repositories/UsersRepository';
+import UsersRepository from '@features/users/infra/repositories/UsersRepository';
 import { IMessagesRepository } from '@features/messages/domain/repositories/IMessagesRepository';
-import MessagesRepository from '@features/messages/infra/typeorm/repositories/MessagesRepository';
+import MessagesRepository from '@features/messages/infra/repositories/MessagesRepository';
 
 import '@features/users/domain/providers';
 

@@ -1,5 +1,3 @@
-import { IMessage } from '@features/messages/domain/models/IMessage';
-
 export interface IUser {
   id: string;
   name: string;
@@ -7,5 +5,4 @@ export interface IUser {
   password: string;
   created_at: Date;
   updated_at: Date;
-  messages: IMessage[];
 }

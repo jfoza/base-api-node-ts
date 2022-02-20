@@ -4,7 +4,7 @@ import { container } from 'tsyringe';
 import { IController } from '@core/presentation/contracts/IController';
 
 export default class ListUsersController implements IController {
-  public async run(request: Request, response: Response): Promise<Response> {
+  public async handle(request: Request, response: Response): Promise<Response> {
     const listUsers = container.resolve(ListUsersService);
 
     const users = await listUsers.execute();

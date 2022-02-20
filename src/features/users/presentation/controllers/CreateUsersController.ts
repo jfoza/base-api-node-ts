@@ -4,7 +4,7 @@ import { container } from 'tsyringe';
 import { IController } from '@core/presentation/contracts/IController';
 
 export default class CreateUsersController implements IController {
-  public async run(request: Request, response: Response): Promise<Response> {
+  public async handle(request: Request, response: Response): Promise<Response> {
     const { name, email, password } = request.body;
 
     const createUser = container.resolve(CreateUserService);

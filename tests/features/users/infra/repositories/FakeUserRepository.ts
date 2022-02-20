@@ -1,6 +1,6 @@
 import { ICreateUser } from '../../../../../src/features/users/domain/models/ICreateUser';
 import { IUserRepository } from '../../../../../src/features/users/domain/repositories/IUserRepository';
-import User from '../../../../../src/features/users/infra/typeorm/entities/User';
+import User from '../../../../../src/features/users/infra/entities/User';
 import { IUser } from '../../../../../src/features/users/domain/models/IUser';
 import { v4 as uuidv4 } from 'uuid';
 

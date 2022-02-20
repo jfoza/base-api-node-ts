@@ -4,7 +4,7 @@ import { Request, Response } from 'express';
 import { container } from 'tsyringe';
 
 export default class CreateMessagesController implements IController {
-  public async run(request: Request, response: Response): Promise<Response> {
+  public async handle(request: Request, response: Response): Promise<Response> {
     const { user_id, description, details } = request.body;
 
     const createMessages = container.resolve(CreateMessagesService);

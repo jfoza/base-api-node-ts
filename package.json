@@ -3,10 +3,12 @@
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
-    "test": "jest",
+    "test": "cross-env NODE_ENV=test jest --silent --noStackTrace --runInBand -c ./jest.config.unit.ts",
+    "test:integration": "cross-env NODE_ENV=test jest --silent --noStackTrace --runInBand -c ./jest.config.integration.ts",
+    "test:setup": "cross-env NODE_ENV=test && npm run typeorm migration:run",
     "dev": "ts-node-dev -r tsconfig-paths/register --inspect --transpile-only --ignore-watch node_modules ./src/core/presentation/http/server.ts",
-    "postinstall": "npx tsc",
-    "start": "node ./dist/core/presentation/http/server.js",
+    "postinstall": "cross-env NODE_ENV=app && npx tsc && npm run typeorm migration:run",
+    "start": "cross-env NODE_ENV=app node ./dist/core/presentation/http/server.js",
     "typeorm": "ts-node-dev ./node_modules/typeorm/cli.js",
     "lint": "eslint . --ext .ts",
     "lint-fix": "eslint . --ext .ts --fix"
@@ -15,6 +17,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "@types/supertest": "^2.0.11",
     "bcryptjs": "^2.4.3",
     "celebrate": "^15.0.0",
     "cors": "^2.8.5",
@@ -25,6 +28,7 @@
     "jsonwebtoken": "^8.5.1",
     "pg": "^8.7.1",
     "reflect-metadata": "^0.1.13",
+    "supertest": "^6.2.2",
     "tsyringe": "^4.6.0",
     "typeorm": "^0.2.41",
     "uuid": "^8.3.2"
@@ -41,6 +45,7 @@
     "@types/uuid": "^8.3.4",
     "@typescript-eslint/eslint-plugin": "^5.10.1",
     "@typescript-eslint/parser": "^5.10.1",
+    "cross-env": "^7.0.3",
     "eslint": "^8.8.0",
     "eslint-config-prettier": "^6.15.0",
     "eslint-plugin-prettier": "^3.2.0",

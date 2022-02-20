@@ -1,4 +1,4 @@
-import AppError from 'src/core/domain/errors/AppError';
+import AppError from '@core/domain/errors/AppError';
 import { NextFunction, Request, Response } from 'express';
 import { verify } from 'jsonwebtoken';
 import authConfig from '@config/auth';
